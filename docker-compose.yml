@@ -1,0 +1,10 @@
+version: '3'
+services:
+  database:
+    image: postgres:latest
+    container_name: hashtag-tracking-db
+    environment: 
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "5432:5432"
