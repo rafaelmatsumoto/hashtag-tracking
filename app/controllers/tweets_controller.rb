@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
     def index
         begin
-            @tweets = Hashtag.find(params[:hashtag_id]).tweets
+            @tweets = Tweet.filter(tweet_params)
             render json: @tweets, status: :ok
         rescue ActiveRecord::RecordNotFound => e
             render json: {
@@ -12,7 +12,7 @@ class TweetsController < ApplicationController
 
     private
 
-    def hashtag_params
-        params.permit(:hashtag_id)
+    def tweet_params
+        params.permit(:has_text, :hashtag_id).slice(:has_text, :hashtag_id)
     end
 end

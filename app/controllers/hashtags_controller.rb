@@ -2,7 +2,7 @@ class HashtagsController < ApplicationController
     before_action :set_hashtag, only: [:destroy]
 
     def index
-        @hashtags = Hashtag.all
+        @hashtags = Hashtag.filter(params.slice(:starts_with))
 
         render json: @hashtags
     end
