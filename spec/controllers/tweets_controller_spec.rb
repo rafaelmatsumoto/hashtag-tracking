@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe TweetsController, type: :controller do
+    let(:hashtag) { Hashtag.create(name: "#svelte") }
+
     describe "responds to" do
         it "renders the tweets of the hashtag" do
-            get :index, params: { :hashtag_id => 1 }
+            get :index, params: { :hashtag_id => hashtag.id }
             expect(response).to have_http_status(:success)
         end
 

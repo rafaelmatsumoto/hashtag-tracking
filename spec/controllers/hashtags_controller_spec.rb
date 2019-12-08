@@ -9,8 +9,10 @@ RSpec.describe HashtagsController, type: :controller do
     end
 
     describe "DELETE destroy" do
+        let(:hashtag) { Hashtag.create(name: "#svelte") }
+
         it "has a 204 status code" do
-            delete :destroy, params: { id: 1 }
+            delete :destroy, params: { id: hashtag.id }
             expect(response).to have_http_status(:no_content)
         end
     end
