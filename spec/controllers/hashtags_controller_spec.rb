@@ -10,7 +10,7 @@ RSpec.describe HashtagsController, type: :controller do
 
     describe "DELETE destroy" do
         it "has a 204 status code" do
-            delete :destroy
+            delete :destroy, params: { id: 1 }
             expect(response).to have_http_status(:no_content)
         end
     end

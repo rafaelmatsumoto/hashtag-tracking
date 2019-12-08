@@ -4,7 +4,6 @@ RSpec.describe TweetsController, type: :controller do
     describe "responds to" do
         it "renders the tweets of the hashtag" do
             get :index, params: { :hashtag_id => 1 }
-            puts response.body
             expect(response).to have_http_status(:success)
         end
 
