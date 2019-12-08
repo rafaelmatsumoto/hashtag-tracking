@@ -16,7 +16,7 @@ namespace :twitter do
         @hashtags = Hashtag.all
 
         @hashtags.each do |hashtag|
-            @tweets = client.search("#{hashtag.name} -rt", count: 10)
+            @tweets = client.search("#{hashtag.name} -rt").take(5)
 
             @tweets.each do |tweet|
                 save_tweet(tweet.text, tweet.created_at, hashtag.id)
