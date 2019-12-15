@@ -58,6 +58,7 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    api-pagination (4.8.2)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     buftok (0.2.0)
@@ -207,12 +208,14 @@ GEM
     websocket-extensions (0.1.4)
     whenever (1.0.0)
       chronic (>= 0.6.3)
+    will_paginate (3.2.1)
     zeitwerk (2.2.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  api-pagination
   bootsnap (>= 1.4.2)
   byebug
   dotenv-rails
@@ -228,6 +231,7 @@ DEPENDENCIES
   twitter
   tzinfo-data
   whenever
+  will_paginate
 
 RUBY VERSION
    ruby 2.6.5p114

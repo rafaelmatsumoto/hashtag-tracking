@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
     def index
         begin
             @tweets = Tweet.filter(tweet_params)
-            render json: @tweets, status: :ok
+            paginate json: @tweets, status: :ok, per_page: 15
         rescue ActiveRecord::RecordNotFound => e
             render json: {
                 error: e.to_s
