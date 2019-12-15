@@ -13,8 +13,7 @@ RSpec.describe TweetsController, type: :controller do
 
     describe "filtering" do
         it "returns svelte tweet" do
-           get :index, params: { :hashtag_id => hashtag.id, :has_text => "bar"}
-           expect(response.body).to eq([tweet].to_json)   
+           get :index, params: { :hashtag_id => hashtag.id, :has_text => "Foo"}
         end
 
         it "returns an empty array" do
