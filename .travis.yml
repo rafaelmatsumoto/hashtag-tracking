@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - 2.6.5
 env:
-  - DB_USERNAME=postgrestest DB_PASSWORD=postgrestest
+  - DB_USERNAME=postgrestest DB_PASSWORD=postgrestest CONSUMER_KEY=d CONSUMER_SECRET=d ACCESS_TOKEN=d ACCESS_TOKEN_SECRET=d
 script: 
   - docker-compose up -d
   - bundle install
