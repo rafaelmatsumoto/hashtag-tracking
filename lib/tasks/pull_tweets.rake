@@ -8,8 +8,12 @@ namespace :twitter do
         config.access_token_secret = ENV.fetch("ACCESS_TOKEN_SECRET")
     end
 
-    def save_tweet(text, published_date, hashtag_id)
-        Tweet.create!(text: text, published_date: published_date, hashtag_id: hashtag_id)
+    def save_tweet(text, published_date, hashtag_id, name, username)
+        Tweet.create!(text: text, 
+                      published_date: published_date, 
+                      hashtag_id: hashtag_id,
+                      name: name,
+                      username: username)
     end
 
     task :pull_tweets => :environment do
@@ -19,7 +23,11 @@ namespace :twitter do
             @tweets = client.search("#{hashtag.name} -rt").take(5)
 
             @tweets.each do |tweet|
-                save_tweet(tweet.text, tweet.created_at, hashtag.id)
+                save_tweet(tweet.text, 
+                           tweet.created_at, 
+                           hashtag.id,
+                           tweet.user.name,
+                           tweet.user.screen_name)
             end
         end
     end
