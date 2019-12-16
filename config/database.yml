@@ -85,6 +85,4 @@ test:
 #
 production:
   <<: *default
-  database: hashtag_tracking_production
-  username: hashtag_tracking
-  password: <%= ENV['HASHTAG_TRACKING_DATABASE_PASSWORD'] %>
+  url: <%= ENV.fetch("DATABASE_URL") %>
