@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'tweets', :type => :request do
     it 'returns a json response' do
-        hashtag = Hashtag.create(name: "#svelte")
+        hashtag = Hashtag.create!(name: "#svelte")
 
         get "/hashtags/#{hashtag.id}/tweets"
 
