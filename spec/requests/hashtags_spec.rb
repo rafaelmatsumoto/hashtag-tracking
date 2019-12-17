@@ -12,6 +12,7 @@ RSpec.describe 'hashtags', :type => :request do
         get '/hashtags'
 
         expect(response.content_type).to eq('application/json; charset=utf-8')
+        expect(response).to have_http_status(:success)
     end
 
     it 'deletes a hashtag' do
